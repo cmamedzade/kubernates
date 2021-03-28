@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cassandra
+  labels:
+    name: database
+spec:
+  containers:
+  - name: cassandra-container
+    image: cassandra
+    resources:
+      limits:
+        memory: "564Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 3030

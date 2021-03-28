@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: yello
+  name: yello
+spec:
+  containers:
+  - image: busybox
+    name: blue
+  - image: redis
+    name: green

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: cassandracluster
+  labels:
+    app: cassandracluster
+    type: database
+spec:
+  replicas: 2
+  selector:
+    app: cassandra
+  template:
+    metadata:
+      name: cassandra
+      labels:
+        app: cassandra
+    spec:
+      containers:
+        - name: cassandrabox
+          image: cassandra
+          ports:
+            - containerPort: 1010

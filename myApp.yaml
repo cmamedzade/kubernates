@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bar
+spec:
+  selector:
+    matchLabels:
+      app: bar
+  template:
+    metadata:
+      labels:
+        app: bar
+    spec:
+      containers:
+      - name: bar
+        image: example
+        imagePullPolicy: Never
+        resources:
+          limits:
+            cpu: "500m"
+        ports:
+        - containerPort: 1010

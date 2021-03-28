@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: newabs
+  name: newabs
+spec:
+  containers:
+  - image: cassanra
+    name: newabs
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+  tolerations:
+  - effect: NoSchedule
+    key: color
+    operator: Equal
+    value: grey
+  nodeSelector:
+    size: large

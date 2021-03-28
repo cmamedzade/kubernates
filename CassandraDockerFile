@@ -1,0 +1,5 @@
+FROM cassandra:latest
+
+COPY cassandra.yaml /etc/cassandra
+
+CMD ["cassandra", "-f"]

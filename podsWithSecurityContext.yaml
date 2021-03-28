@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu
+  labels:
+    name: ubuntu    
+spec:
+  securityContext:
+    runAsUser: 1000
+    capabilities: ["MAC_ADMIN"]
+  containers:
+  - name: ubuntu
+    image: ubuntu    
+    resources:
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 9090
