@@ -71,3 +71,14 @@ kubectl get nodes minikube --show-labels
 #########
 kubectl scale deployment transaction --replicas=2
 
+
+minikube addons enable metrics-server
+
+kubectl top node
+watch "kubectl top node"
+
+kubectl create deployment busybox --image=busybox --replicas=3 --port=80 --dry-run=client -o yaml > busy.yaml
+kubectl expose deployment busybox --port=80 --target-port=80 --dry-run=client -o yaml > busyService.yaml
+
+minikube service cassandra --url
+minikube tunnel
